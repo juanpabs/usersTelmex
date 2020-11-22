@@ -1,5 +1,5 @@
 """
-ASGI config for usersTelmex project.
+ASGI config for usersTelmexAPI project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'usersTelmex.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'usersTelmexAPI.settings')
 
 application = get_asgi_application()
