@@ -6,6 +6,7 @@ from django.http.response import JsonResponse
 from UsersApp.usermodels import RetrieveAllUsers, CreateUser, UpdateUser, DeleteUserById
 from UsersApp.companymodels import RetrieveAllCompanies, CreateCompany, UpdateCompany, DeleteCompanyById
 from UsersApp.rolemodels import RetrieveAllRoles, CreateRole, UpdateRole, DeleteRoleById
+from UsersApp.userrolemodels import  CreateUserRole
 from django.views.decorators.csrf import ensure_csrf_cookie
 
 # Create your views here.
@@ -13,8 +14,9 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 def UserApi(request,id=0):
     if request.method == 'POST':
         user_data = JSONParser().parse(request)
-        if CreateUser(user_data):
-            return  JsonResponse("User Created", safe=False)
+        userCreated = CreateUser(user_data)
+        if userCreated != None:
+            return  JsonResponse(userCreated, safe=False)
         return JsonResponse("Failed to Create User", safe=False)
 
     elif request.method == 'GET':

@@ -6,7 +6,7 @@ def RetrieveAllUserRoles():
     userroles_seriallizer = UserRoleSeriallizer(userroles, many = True)
     return userroles_seriallizer.data
 
-def CreateRole(role_data):
+def CreateUserRole(role_data):
     userroles_seriallizer = UserRoleSeriallizer(data=role_data)
 
     if userroles_seriallizer.is_valid():

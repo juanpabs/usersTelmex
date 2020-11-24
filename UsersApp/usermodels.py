@@ -11,9 +11,9 @@ def CreateUser(user_data):
 
     if users_seriallizer.is_valid():
         users_seriallizer.save()
-        return True
+        return users_seriallizer.data
 
-    return False
+    return None
 
 def UpdateUser(user_data):
     user = Users.objects.get(UserId=user_data['UserId'])
